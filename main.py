@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from database import Database
 from pydantic import BaseModel
+from fastapi.responses import RedirectResponse
 import string
 import random
 
@@ -32,3 +33,12 @@ def shorten_url(request : ShortenRequest ) :
    db_obj.add_url(short_code,request.original_url)
    return {"Original URL":request.original_url,
            "Short_Code" :short_code }
+
+# get route
+@app.get("/{short_code}")
+def get_original_url(short_code):
+   url_response = db_obj.get_url(short_code)
+   if url_response is None:
+      return{"message":"Not Found"}
+   else:
+      return RedirectResponse(url_response)

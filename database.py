@@ -25,3 +25,16 @@ class Database :
                             (short_code,original_url))
         db_connection.commit()
         db_connection.close()
+
+    # Get URL
+    def get_url(self,short_code):
+        db_connection = sqlite3.connect("urls.db")
+        cursor = db_connection.cursor()
+        cursor.execute("""SELECT original_url FROM urls WHERE short_code = ?""",(short_code,))
+        response = cursor.fetchone()
+        db_connection.close()
+        if response is None:
+            return None
+
+        return response[0]
+    
