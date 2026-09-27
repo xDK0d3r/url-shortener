@@ -4,8 +4,21 @@ body {
     padding: 40px 20px;
 }
 
-#title {
+header {
     text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+header p {
+    margin: 0 0 5px;
+}
+
+header span {
+    font-size: 14px;
 }
 
 #form,
@@ -33,4 +46,10 @@ body {
     display: inline-block;
     margin-top: 8px;
     word-break: break-all;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
 }
