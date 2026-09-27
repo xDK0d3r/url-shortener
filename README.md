@@ -6,7 +6,7 @@ This project was built as a **learning project** to practice backend web develop
 
 ## Live Demo
 
-**Live Demo:** `https://url-shortener-k5ed.onrender.com`
+**Live Demo:** https://url-shortener-k5ed.onrender.com
 
 ## Features
 
