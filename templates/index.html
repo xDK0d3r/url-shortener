@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>URL Shortener</title>
+        <link rel="stylesheet" href="/static/style.css">
     </head>
     
     <body>
@@ -13,7 +14,7 @@
         <section id="form">
             <form method="post" action="/shorten">
                 <label for="original_url">Enter Your URL</label>
-                <input type="url" id="original_url" name="original_url">
+                <input type="url" id="original_url" name="original_url" required>
                 <button type="submit">Shorten URL</button>
             </form>
         </section>

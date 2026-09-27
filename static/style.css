@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+#title {
+    text-align: center;
+}
+
+#form,
+#result,
+#msg {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+#form button {
+    margin-top: 12px;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+#result a {
+    display: inline-block;
+    margin-top: 8px;
+    word-break: break-all;
+}
