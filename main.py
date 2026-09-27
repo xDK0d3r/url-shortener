@@ -1,19 +1,19 @@
-from fastapi import FastAPI,HTTPException
+from fastapi import FastAPI,HTTPException,Form,Request
 from database import Database
-from pydantic import BaseModel
 from fastapi.responses import RedirectResponse
+from fastapi.templating import Jinja2Templates
 import string
 import random
 
 # app object creation and calling
 app = FastAPI()
 
+# template object creation and calling
+templates = Jinja2Templates(directory="templates")
+
 # db object creation and calling
 db_obj = Database()
 db_obj.db_initialize()
-
-class ShortenRequest(BaseModel) :
-   original_url : str
 
 # Generate Short Codes
 def generate_short_code() :
@@ -23,17 +23,28 @@ def generate_short_code() :
 
 # root route
 @app.get("/")
-def home() :
-   return {"message" : "Site is Working"}
+def home(request : Request) :
+   return templates.TemplateResponse(
+      request = request,
+      name = "index.html",
+      context = {"short_url" : None}
+   )
 
 # post route
 @app.post("/shorten")
-def shorten_url(request : ShortenRequest ) :
+def shorten_url(request : Request, original_url : str = Form(...)) :
    short_code = generate_short_code()
-   db_obj.add_url(short_code,request.original_url)
-   return {"Original URL":request.original_url,
-           "Short_Code" :short_code }
-
+   
+   db_obj.add_url(short_code,original_url)
+   
+   short_url = "http://127.0.0.1:8000/" + short_code
+   
+   return templates.TemplateResponse(
+      request = request,
+      name = "index.html",
+      context = {"short_url" : short_url}
+   )
+   
 # get route
 @app.get("/{short_code}")
 def get_original_url(short_code):
