@@ -1,93 +1,123 @@
 # URL Shortener
 
-A **learning project**: a URL shortener web application built with **Python, FastAPI, SQLite, HTML and CSS**.
+A simple URL Shortener web application built with **Python, FastAPI, Jinja2, and SQLite**.
 
-## Overview
+This project was built as a **learning project** to practice backend web development, database integration, and serving HTML pages with FastAPI.
 
-This project converts long URLs into shorter, easier-to-share URLs.
+## Live Demo
 
-When a user opens the generated short URL, the application looks up the original URL and redirects the user to its destination.
-
-The project is being developed as part of my hands-on learning journey into **Python backend and web application development**.
+**Live Demo:** `https://url-shortener-k5ed.onrender.com`
 
 ## Features
 
-* Create a short URL from a long URL
+* Enter a long URL and generate a short URL
+* Store shortened URLs in SQLite
 * Redirect short URLs to their original destinations
-* Store URL mappings in SQLite
-* Web interface using HTML and CSS
-* FastAPI backend for handling application logic and HTTP requests
+* Simple HTML + CSS user interface
+* Server-side rendering using Jinja2
+* Basic handling for empty URL input
 
 ## Tech Stack
 
 * **Python**
-* **FastAPI**
-* **SQLite**
+* **FastAPI** — Web framework
+* **Jinja2** — HTML templating
+* **SQLite** — Database
 * **HTML**
 * **CSS**
-* **Git & GitHub**
 
 ## How It Works
 
-```text
-Long URL
-   ↓
-FastAPI Backend
-   ↓
-Generate Short Code
-   ↓
-Store URL Mapping in SQLite
-   ↓
-Return Short URL
-   ↓
-User Opens Short URL
-   ↓
-FastAPI Finds Original URL
-   ↓
-Redirect to Original URL
-```
+1. The user enters a long URL into the web interface.
+2. FastAPI receives the submitted URL.
+3. The application generates a short code.
+4. The short code and original URL are stored in SQLite.
+5. The application displays the shortened URL.
+6. When the short URL is opened, FastAPI looks up the corresponding original URL.
+7. The user is redirected to the original URL.
 
 ## Project Structure
 
-The project structure will be documented as the application develops.
+```text
+url-shortener/
+├── main.py
+├── database.py
+├── requirements.txt
+├── templates/
+│   └── index.html
+├── static/
+│   └── style.css
+├── .gitignore
+├── LICENSE
+└── README.md
+```
 
-## Development Status
+## Running Locally
 
-**In Development**
+Clone the repository and enter the project directory.
 
-This is a learning project focused on understanding how a complete web application works across the **frontend, backend, and database layers**.
+Create and activate a virtual environment:
 
-The application is being developed incrementally, starting with the backend and database functionality before completing the web interface.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-## What I'm Learning
+Install the dependencies:
 
-Through this project, I'm practicing:
+```bash
+pip install -r requirements.txt
+```
 
-* FastAPI fundamentals
-* REST API concepts
-* HTTP methods and routing
-* URL redirection
-* SQLite database integration
-* Backend application structure
-* Connecting HTML/CSS with a Python backend
-* Building and testing a complete web application
+Start the development server:
 
-## Future Improvements
+```bash
+uvicorn main:app --reload
+```
 
-Potential improvements may include:
+Open the application in your browser:
 
-* URL expiration
-* Click tracking
-* Custom short codes
-* Improved error handling
-* Additional URL management features
+```text
+http://127.0.0.1:8000
+```
 
-## Author
+## Database
 
-**Dhanush K**
-GitHub: [xDK0d3r](https://github.com/xDK0d3r)
+The application uses SQLite to store shortened URLs.
+
+The database contains:
+
+* `short_code` — Unique identifier for the shortened URL
+* `original_url` — The original URL to redirect to
+
+The SQLite database file is generated locally and is not included in the repository.
+
+## Project Status
+
+**V1 — Complete**
+
+> ### Current V1 Scope
+>
+> The current version completes the core URL-shortening workflow:
+>
+> * **URL shortening** — Generate a unique 6-character short code for a submitted URL.
+> * **SQLite storage** — Store the short code and original URL in the database.
+> * **URL redirection** — Open a short URL and redirect to its original destination.
+> * **Web interface** — Provide a simple HTML + CSS interface for creating shortened URLs.
+> * **Server-side rendering** — Use Jinja2 templates with FastAPI.
+> * **Input handling** — Handle empty URL submissions through the web interface.
+>
+> The project intentionally keeps the V1 scope simple and focused on the fundamental URL-shortening workflow.
+
+Future versions may include additional features such as URL management, expiration, analytics, and other enhancements.
 
 ## License
 
 This project is licensed under the **MIT License**.
+
+## Author
+
+**Dhanush K | xDK0d3r**
+
+This project was created as part of my journey learning Python backend and web development.
 
