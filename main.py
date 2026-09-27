@@ -2,13 +2,16 @@ from fastapi import FastAPI,HTTPException,Form,Request
 from database import Database
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 import string
 import random
 
-# app object creation and calling
+# app object creation
 app = FastAPI()
 
-# template object creation and calling
+app.mount("/static",StaticFiles(directory = "static"),name = "static")
+ 
+# template object creation
 templates = Jinja2Templates(directory="templates")
 
 # db object creation and calling
