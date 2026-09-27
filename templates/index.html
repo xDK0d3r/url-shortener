@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>URL Shortener</title>
+    </head>
+    
+    <body>
+        <header id="title">
+            <h1>URL Shortener</h1>
+        </header>
+
+        <section id="form">
+            <form method="post" action="/shorten">
+                <label for="original_url">Enter Your URL</label>
+                <input type="url" id="original_url" name="original_url">
+                <button type="submit">Shorten URL</button>
+            </form>
+        </section>
+
+        <section id="result">
+            {% if short_url %}
+              <label for="shorten_url">Your Shortened URL</label>
+              <a href={{short_url}}>{{short_url}}</a>
+            {% endif %}
+        </section>
+
+        <section id="msg">
+
+        </section>
+    </body>
+</html>
