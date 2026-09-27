@@ -40,7 +40,7 @@ def shorten_url(request : Request, original_url : str = Form(...)) :
    
    db_obj.add_url(short_code,original_url)
    
-   short_url = "http://127.0.0.1:8000/" + short_code
+   short_url = str(request.base_url) + short_code
    
    return templates.TemplateResponse(
       request = request,
