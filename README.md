@@ -8,10 +8,17 @@ This project was built as a **learning project** to practice backend web develop
 
 **Live Demo:** https://url-shortener-k5ed.onrender.com
 
+## Articles
+
+* **CoderLegion:** [Building a URL Shortener with FastAPI and SQLite — V1 Complete](https://coderlegion.com/28967/building-a-url-shortener-with-fastapi-and-sqlite-v1-complete)
+* **Dev.to:** [Building My First Web Backend Project: A URL Shortener with FastAPI and SQLite](https://dev.to/xdk0d3r/building-my-first-web-backend-project-a-url-shortener-with-fastapi-and-sqlite-327k)
+
 ## Features
 
 * Enter a long URL and generate a short URL
 * Store shortened URLs in SQLite
+
+Long URL → Short link → Redirect to the original URL.
 * Redirect short URLs to their original destinations
 * Simple HTML + CSS user interface
 * Server-side rendering using Jinja2
